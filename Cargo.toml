@@ -1,0 +1,17 @@
+[package]
+name = "hyprfollow"
+version = "1.0.0"
+edition = "2021"
+keywords = ["hyprland"]
+categories = ["command-line-utilities"]
+license = "NOLICENSE"
+description = "JSON based event monitors for your Hyprland activity."
+readme = "README.md"
+homepage = "https://github.com/lukacerr/hyprfollow"
+repository = "https://github.com/lukacerr/hyprfollow"
+
+[dependencies]
+hyprland = { git = "https://github.com/hyprland-community/hyprland-rs", branch = "master" }
+serde = "1.0.217"
+serde_json = "1.0.138"
+tokio = "1.43.0"
