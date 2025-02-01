@@ -41,15 +41,17 @@ TIPS:
 
 ## Install / Uninstall
 
-A script is provided for ease of use. Following example uses wget to run it:
+A script is provided for ease of use. Following example uses curl to run it:
 
 ```sh
-wget -O - https://raw.githubusercontent.com/lukacerr/hyprfollow/main/install.sh | bash
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/lukacerr/hyprfollow/main/install.sh | sh
 ```
 
 > Exmaple
 
 ![Installation example](assets/installation.png)
+
+_If unsure, go for option 2._
 
 ### [eww](https://github.com/elkowar/eww) integration examples
 
