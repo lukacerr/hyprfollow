@@ -39,11 +39,31 @@ TIPS:
 @lukacerr in most social media :)
 ```
 
-#### [eww](https://github.com/elkowar/eww) integration examples
+## Install / Uninstall
 
-TODO
+A script is provided for ease of use. Following example uses wget to run it:
 
-##### Final notes
+```sh
+wget -O - https://raw.githubusercontent.com/lukacerr/hyprfollow/main/install.sh | bash
+```
+
+> Exmaple
+
+![Installation example](assets/installation.png)
+
+### [eww](https://github.com/elkowar/eww) integration examples
+
+> Active window
+
+![Active window example](assets/active-window-example.png)
+
+> Workspace
+
+![Workspace horizontal example](assets/workspace-h-example.png)
+
+![Workspace vertical example](assets/workspace-v-example.png)
+
+#### Final notes
 
 I'm new to rust. This is my first somewhat useful project.
 Won't ask for any donations or stuff, but I'd really appreciate feedback & reviews.
