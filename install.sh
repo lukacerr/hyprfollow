@@ -50,7 +50,8 @@ show_menu() {
 
 while true; do
   show_menu
-  read -rp "(1/2/3/4/9/0) -> " option
+  read -rp "(1/2/3/4/9/0) -> " option </dev/tty
+
   case $option in
     1)
       if [ "$EUID" -ne 0 ]; then
