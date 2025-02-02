@@ -66,6 +66,11 @@ _If unsure, go for option 2._
 
 ![Workspace vertical example](assets/workspace-v-example.png)
 
+> Submap
+> _This one uses installation in eww scripts_
+
+![alt text](assets/submap-example.png)
+
 #### Final notes
 
 I'm new to rust. This is my first somewhat useful project.
