@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL of the binary
-URL="https://github.com/lukacerr/hyprfollow/releases/download/v1.0.0/hyprfollow"
+URL="https://github.com/lukacerr/hyprfollow/releases/download/v1.0.1/hyprfollow"
 
 # Function to download the binary to the specified destination directory
 download() {
