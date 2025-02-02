@@ -23,6 +23,7 @@ FLAGS:
 AVAILABLE MONITORS:
   aw, active-window             Monitors active window
   w, workspaces                 Monitors workspaces changes
+  s, submap                     Monitors active submap changes
 
 FLAGS FOR ALL MONITORS:
   -h, --help                    Displays list of options for the specified monitor
@@ -33,7 +34,7 @@ EXAMPLES:
 
 TIPS:
   Combine with jq for a readable output: hyprfollow [monitor] [options...] | jq .
-  Concatenate more than one monitor with the '&' operator (ej 'hyprfollow aw & w -f -m 1')
+  Concatenate more than one monitor with the '&' operator (ej 'hyprfollow s & hyprfollow w -m 3')
 
 > May I help you?
 @lukacerr in most social media :)
