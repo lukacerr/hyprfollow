@@ -22,10 +22,11 @@ FLAGS:
 
 EXAMPLES:
   hyprfollow active-window      Starts monitoring active window state
-  hyprfollow aw -f -m DP-1    Monitors active window on specific monitor, retreiving full data
+  hyprfollow aw -f -m DP-1      Monitors active window on specific monitor, retreiving full data
 
 TIPS:
   Combine with jq for a readable output: hyprfollow aw [options...] | jq .
+  Concatenate more than one monitor with the '&' operator (ej 'hyprfollow aw & hyprfollow w -m 3')
 
 > WHY ISN'T '--full' THE DEFAULT?
 Some of the data that provides require re-fetching.

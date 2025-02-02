@@ -25,7 +25,7 @@ EXAMPLES:
 
 TIPS:
   Combine with jq for a readable output: hyprfollow [monitor] [options...] | jq .
-  Concatenate more than one monitor with the '&' operator (ej 'hyprfollow w DP-1 & w -m 3')
+  Concatenate more than one monitor with the '&' operator (ej 'hyprfollow w -m DP-1 & hyprfollow w -m 3')
 ";
 
 /* TODO: Implement virtual workspace dom without refetching
@@ -47,15 +47,18 @@ struct WorkspaceExtended {
 async fn print_workspaces_full(workspaces: Workspaces, active: WorkspaceId, monitor_id: Option<i128>) {
   let workspaces_iter = workspaces.iter()
     .filter(|w| monitor_id.is_none_or(|id| 
-      w.monitor_id.is_some() && id.eq(&w.monitor_id.unwrap())));
+      w.monitor_id.is_some() && id.eq(&w.monitor_id.unwrap()))
+    );
 
-  let workspaces_vec: Vec<WorkspaceExtended> = workspaces_iter.map(
+  let mut workspaces_vec: Vec<WorkspaceExtended> = workspaces_iter.map(
     |w| WorkspaceExtended {
       data: w.to_owned(),
       active: w.id == active
   }).collect();
 
   drop(workspaces);
+
+  workspaces_vec.sort_by_key(|w| w.data.id);
 
   println!("{}", json!(workspaces_vec));
 }
@@ -77,7 +80,6 @@ pub async fn workspaces_monitor(options: Options) -> hyprland::Result<()> {
   }};
 
   fetch_and_print().await;
-
   event_listener.add_workspace_added_handler(move |_| fetch_and_print());
   event_listener.add_workspace_changed_handler(move |_| fetch_and_print());
   event_listener.add_workspace_deleted_handler(move |_| fetch_and_print());

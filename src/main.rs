@@ -1,7 +1,7 @@
 use std::env;
 
 pub mod monitors;
-use monitors::{active_window::{active_window_monitor, is_active_window}, workspaces::{is_workspaces, workspaces_monitor}};
+use monitors::{active_window::{active_window_monitor, is_active_window}, submap::{is_submap, submap_monitor}, workspaces::{is_workspaces, workspaces_monitor}};
 
 pub mod options;
 use options::args_to_options;
@@ -29,6 +29,7 @@ async fn main() -> hyprland::Result<()> {
   match monitor {
     x if is_active_window(x) => active_window_monitor(options).await?,
     x if is_workspaces(x) => workspaces_monitor(options).await?,
+    x if is_submap(x) => submap_monitor(options).await?,
     // x if is_new(x) => new_monitor(options).await?,
     _ => print_generic_help_and_exit()
   }
